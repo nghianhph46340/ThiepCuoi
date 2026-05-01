@@ -1,18 +1,25 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import weddingData from '../wedding-data.json';
 
 const GallerySection = () => {
+  const { couple, images, labels } = weddingData;
+
   return (
-    <section className="section gallery-section" style={{ backgroundColor: '#fff' }}>
-      <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-4">
-        <h3 className="serif-font" style={{ fontSize: '1.6rem', marginBottom: '15px' }}>Trân trọng kính mời tới tham dự lễ của</h3>
-        <h2 className="title-font text-accent" style={{ fontSize: '4rem' }}>Trọng Khang & Minh Anh</h2>
+    <section className="section gallery-section">
+      <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
+        <div className="fancy-divider">
+          <span className="title-font" style={{ fontSize: '3rem' }}>{labels.invitationTitle}</span>
+        </div>
+        <p className="sans-font text-center" style={{ letterSpacing: '2px', color: '#555', marginTop: '10px' }}>
+          {labels.invitationSubtitle} {couple.groom.name.toUpperCase()} & {couple.bride.name.toUpperCase()}
+        </p>
       </motion.div>
-      
-      <motion.div className="gallery-slider mt-4" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.3 }} viewport={{ once: true }}>
-        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=600&q=80" alt="Wedding 1" />
-        <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=600&q=80" alt="Wedding 2" />
-        <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=600&q=80" alt="Wedding 3" />
+
+      <motion.div className="collage-grid" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}>
+        {images.gallery.map((img, idx) => (
+          <img key={idx} src={img} alt={`Gallery ${idx}`} className={idx === 0 ? "collage-img-main" : "collage-img-sub"} />
+        ))}
       </motion.div>
     </section>
   );

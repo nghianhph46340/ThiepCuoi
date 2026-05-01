@@ -1,9 +1,11 @@
 :root {
   --primary-color: #ffffff;
-  --text-color: #4a4a4a;
-  --accent-color: #d4af37; /* Màu vàng đồng champagne */
-  --bg-color: #ffffff;
-  --font-title: 'Great Vibes', cursive;
+  --text-color: #3d3d3d;
+  --accent-color: #e5b2b2;
+  /* Màu hồng phấn */
+  --bg-color: #faf8f5;
+  /* Màu be ngà sáng */
+  --font-title: 'Alex Brush', cursive;
   --font-serif: 'Cormorant Garamond', serif;
   --font-sans: 'Montserrat', sans-serif;
 }
@@ -18,149 +20,770 @@ body {
   font-family: var(--font-serif);
   color: var(--text-color);
   background-color: var(--bg-color);
+  /* Nền hoa văn chìm cho toàn trang - Đậm hơn */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" opacity="0.08"><path d="M10,10 Q30,0 50,10 T90,10" fill="none" stroke="%23e5b2b2" stroke-width="0.6"/><circle cx="50" cy="50" r="1" fill="%23e5b2b2"/></svg>');
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-.section {
-  min-height: 80vh;
+/* ==========================================================================
+   Mobile Layout (Giao diện chuẩn trên điện thoại - theo đúng ảnh thiết kế)
+   ========================================================================== */
+
+/* Utilities */
+.section { 
+  padding: 3rem 1.5rem; 
+  position: relative; 
+  width: 100%; 
+  max-width: 450px; 
+  margin: 0 auto; 
+  transition: all 0.3s ease; 
+  overflow: hidden; 
+}
+
+/* Họa tiết góc trái trên - Đậm hơn */
+.section::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 140px;
+  height: 140px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" stroke="%23e5b2b2" stroke-width="1.2" opacity="0.6"><path d="M0,0 Q50,10 60,60 T100,100 M0,0 Q10,50 60,60 T100,100 M20,10 Q30,30 10,50 M10,20 Q30,30 50,10"/></svg>');
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Họa tiết góc phải dưới - Đậm hơn */
+.section::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  right: -10px;
+  width: 170px;
+  height: 170px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" stroke="%23e5b2b2" stroke-width="1.2" opacity="0.5"><path d="M100,100 Q50,90 40,40 T0,0 M100,100 Q90,50 40,40 T0,0 M80,90 Q70,70 90,50 M90,80 Q70,70 50,90"/></svg>');
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.title-font {
+  font-family: var(--font-title);
+  line-height: 1.2;
+  font-weight: 400;
+  color: #111;
+}
+
+.serif-font {
+  font-family: var(--font-serif);
+}
+
+.sans-font {
+  font-family: var(--font-sans);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: #444;
+}
+
+.text-center {
+  text-align: center;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+/* Divider "--- Thư Mời ---" */
+.fancy-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin: 2rem 0 1rem 0;
+}
+
+.fancy-divider::before,
+.fancy-divider::after {
+  content: '';
+  height: 1px;
+  width: 30px;
+  background-color: #ccc;
+}
+
+/* 1. Hero Section */
+.hero-section {
+  min-height: 100vh;
+  background: radial-gradient(circle at 50% 50%, #ffffff 30%, #fce4ec 100%);
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  padding: 4rem 2rem;
+  justify-content: flex-start;
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+  position: relative;
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+  transition: all 0.3s ease;
+}
+
+.hero-header {
   text-align: center;
+  z-index: 2;
+  margin-bottom: -30px;
+  transition: all 0.3s ease;
+}
+
+.hero-image-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+}
+
+.hero-image-container img {
+  width: 85%;
+  max-width: 350px;
+  border-radius: 200px 200px 10px 10px;
+  mix-blend-mode: multiply;
+  transition: all 0.3s ease;
+}
+
+.hero-footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0 1.5rem;
+  margin-top: -10px;
+  z-index: 2;
   position: relative;
 }
 
-h1, h2, h3, h4, h5 { font-weight: 400; color: #333; }
-.title-font { font-family: var(--font-title); font-size: 3rem; line-height: 1.2; }
-.serif-font { font-family: var(--font-serif); }
-.sans-font { font-family: var(--font-sans); letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; }
-.text-accent { color: var(--accent-color); }
-.mb-1 { margin-bottom: 0.5rem; }
-.mb-2 { margin-bottom: 1rem; }
-.mb-3 { margin-bottom: 1.5rem; }
-.mb-4 { margin-bottom: 2rem; }
-.mt-3 { margin-top: 1.5rem; }
-.mt-4 { margin-top: 2rem; }
-.w-100 { width: 100%; }
-.text-center { text-align: center; }
-
-img { max-width: 100%; height: auto; border-radius: 8px; object-fit: cover; }
-
-.btn {
-  cursor: pointer; border: 1px solid var(--accent-color);
-  background: transparent; color: var(--accent-color);
-  padding: 12px 32px; font-family: var(--font-sans); font-size: 0.9rem;
-  letter-spacing: 2px; text-transform: uppercase; border-radius: 4px;
-  transition: all 0.3s ease; margin: 10px;
-}
-.btn:hover { background: var(--accent-color); color: #fff; }
-.btn-primary { background: var(--accent-color); color: #fff; }
-.btn-primary:hover { background: #bfa131; border-color: #bfa131; }
-
-/* Hero Section & Curtains (Rèm cửa hoa cưới làm mờ) */
-.hero-section { height: 100vh; overflow: hidden; justify-content: center; background: #fff; padding: 0; }
-
-.curtain {
-  position: absolute; top: 0; bottom: 0; width: 50vw; z-index: 50;
-  overflow: hidden; box-shadow: 0 0 30px rgba(0,0,0,0.5);
-}
-.curtain-left { left: 0; border-right: 2px solid rgba(255,255,255,0.6); }
-.curtain-right { right: 0; border-left: 2px solid rgba(255,255,255,0.6); }
-
-/* Hình ảnh hoa cưới nền cho rèm */
-.curtain-inner {
-  position: absolute;
-  top: -20px; bottom: -20px;
-  width: calc(100vw + 40px);
-  background-image: url('https://images.unsplash.com/photo-1523688882522-8924b17a14e9?auto=format&fit=crop&w=1600&q=80');
-  background-size: cover;
-  background-position: center;
-  filter: blur(12px) brightness(0.85); /* Làm mờ hoa cưới */
-}
-
-/* Căn chỉnh lại hình nền để khi rèm ghép lại thì hình ảnh khớp hoàn hảo 100% */
-.curtain-left .curtain-inner { left: -20px; }
-.curtain-right .curtain-inner { left: calc(-50vw - 20px); }
-
-/* Nút Mở Thiệp */
-.open-btn-container {
-  position: absolute;
-  z-index: 100;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex; flex-direction: column; align-items: center;
-  cursor: pointer;
-}
-.open-btn {
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(5px);
-  border: 2px solid #fff;
-  color: #fff;
-  padding: 15px 40px;
-  border-radius: 50px;
-  font-size: 2.5rem;
-  cursor: pointer;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+/* Ngày tháng góc trái / Cột dọc */
+.date-block-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 5px;
   transition: all 0.3s ease;
 }
-.open-btn:hover {
-  background: #fff;
-  color: var(--accent-color);
-  border-color: #fff;
+
+.date-col-1 {
+  flex: 1;
+  text-align: right;
+  line-height: 1.5;
+  color: #333;
+  font-weight: 500;
+  font-size: 0.8rem;
+  padding-right: 15px;
+  white-space: nowrap;
 }
 
-.hero-content { z-index: 5; display: flex; flex-direction: column; align-items: center; position: relative; width: 100%; }
-.hero-image { max-width: 320px; margin-top: 2rem; border-radius: 200px 200px 10px 10px; overflow: hidden; border: 3px solid var(--accent-color); padding: 5px; background: #fff; }
-.hero-image img { border-radius: 195px 195px 5px 5px; height: 400px; width: 100%; object-fit: cover; }
+.date-col-2 {
+  font-size: 3rem;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  padding: 0 15px;
+  border-left: 1px solid #aaa;
+  border-right: 1px solid #aaa;
+  line-height: 1;
+  color: #111;
+  flex: 0 0 auto;
+}
 
-/* Date & Poem Section */
-.divider { height: 1px; background: var(--accent-color); width: 80px; margin: 1rem auto; }
+.date-col-3 {
+  flex: 1;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #333;
+  padding-left: 15px;
+  white-space: nowrap;
+}
 
-/* Family Section */
-.family-grid { display: flex; flex-direction: column; gap: 4rem; width: 100%; max-width: 800px; }
-.family-card { display: flex; align-items: center; gap: 3rem; text-align: left; }
-.family-card.reverse { flex-direction: row-reverse; text-align: right; }
-.family-image { flex: 1; display: flex; justify-content: center; }
-.family-image img { width: 100%; max-width: 300px; border-radius: 50%; aspect-ratio: 1; border: 4px solid #f0f0f0; padding: 5px; }
-.family-info { flex: 1; }
+.music-icon {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  animation: spin 4s linear infinite;
+  transition: all 0.3s ease;
+  z-index: 999;
+  cursor: pointer;
+}
 
-/* Gallery */
-.gallery-slider { display: flex; gap: 1rem; overflow-x: auto; padding: 1rem 0; width: 100%; max-width: 1000px; scroll-snap-type: x mandatory; }
-.gallery-slider::-webkit-scrollbar { height: 6px; }
-.gallery-slider::-webkit-scrollbar-thumb { background: var(--accent-color); border-radius: 10px; }
-.gallery-slider img { width: 80%; max-width: 600px; flex-shrink: 0; scroll-snap-align: center; border-radius: 12px; }
+.scroll-down-simple {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  z-index: 10;
+}
 
-/* Ceremony */
-.frame-box { border: 2px solid var(--accent-color); padding: 3rem; border-radius: 12px; background: #fff; max-width: 500px; width: 100%; position: relative; }
-.frame-box::before { content: ''; position: absolute; top: 10px; left: 10px; right: 10px; bottom: 10px; border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 6px; pointer-events: none; }
-.calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; max-width: 350px; margin: 0 auto; }
-.cal-day { padding: 10px; font-family: var(--font-sans); font-size: 0.9rem; display: flex; justify-content: center; align-items: center; }
-.cal-day.head { font-weight: bold; color: var(--accent-color); border-bottom: 1px solid #eee; }
-.cal-day.highlight { background: var(--accent-color); color: #fff; border-radius: 50%; width: 35px; height: 35px; margin: auto; }
-.map-container { width: 100%; max-width: 800px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-radius: 12px; }
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
-/* Album */
-.album-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; width: 100%; max-width: 1000px; }
-.album-item { overflow: hidden; border-radius: 12px; }
-.album-item img { transition: transform 0.5s ease; }
-.album-item:hover img { transform: scale(1.05); }
+/* 2. Family Section */
+.family-section {
+  padding-top: 2rem;
+  background: var(--bg-color);
+}
 
-/* Form & Modal */
-.form-input { width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 4px; font-family: var(--font-sans); font-size: 0.9rem; outline: none; transition: border-color 0.3s; }
-.form-input:focus { border-color: var(--accent-color); }
-.modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(5px); display: flex; justify-content: center; align-items: center; z-index: 1000; }
-.modal-content { background: #fff; padding: 3rem; border-radius: 12px; width: 90%; max-width: 450px; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.2); }
-.modal-close { position: absolute; top: 15px; right: 20px; font-size: 2rem; cursor: pointer; color: #999; line-height: 1; transition: color 0.3s; }
-.modal-close:hover { color: var(--accent-color); }
-.thank-you-card { border: 3px solid var(--accent-color); text-align: center; background-color: #fffaf0; position: relative; }
+.family-block {
+  display: flex;
+  align-items: stretch;
+  margin-bottom: 3rem;
+  gap: 1.5rem;
+  transition: all 0.3s ease;
+}
 
-@media (max-width: 768px) {
-  .family-card, .family-card.reverse { flex-direction: column; text-align: center; gap: 1.5rem; }
-  .title-font { font-size: 2.5rem !important; }
-  .frame-box { padding: 2rem; }
-  .gallery-slider img { width: 90%; }
+.family-block.reverse {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+.family-block .img-col {
+  flex: 0 0 45%;
+}
+
+.family-block .img-col img {
+  width: 100%;
+  height: 100%;
+  min-height: 250px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.family-block .text-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.parent-name {
+  font-weight: 600;
+  color: #111;
+  margin-top: 5px;
+  font-size: 0.7rem;
+  transition: all 0.3s ease;
+}
+
+/* 3. Gallery Section */
+.gallery-section {
+  padding-top: 1rem;
+}
+
+.photo-slider-container {
+  width: 100%;
+  overflow-x: auto;
+  padding: 1.5rem 0;
+  margin-bottom: 2rem;
+  scrollbar-width: none; 
+}
+
+.photo-slider-container::-webkit-scrollbar {
+  display: none; 
+}
+
+.photo-slider {
+  display: flex;
+  gap: 12px;
+  padding: 0 30px;
+  scroll-snap-type: x mandatory;
+  align-items: center;
+}
+
+.slider-item {
+  flex: 0 0 40%; /* Thu nhỏ để thấy được 3 ảnh trên mobile */
+  scroll-snap-align: center;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.slider-item img {
+  width: 100%;
+  height: 220px; /* Chiều cao nhỏ gọn hơn */
+  object-fit: cover;
+  display: block;
+}
+
+/* 4. Ceremony Section */
+.ceremony-card {
+  background: #fff;
+  border-radius: 15px;
+  padding: 2.5rem 1rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+  text-align: center;
+  margin: 0 auto;
+  max-width: 450px;
+  transition: all 0.3s ease;
+}
+
+.ceremony-time-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+  width: 100%;
+}
+
+.ceremony-time-block>div:first-child {
+  flex: 1;
+  text-align: right;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding-right: 15px;
+  white-space: nowrap;
+}
+
+.ceremony-time-block>div:last-child {
+  flex: 1;
+  text-align: left;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding-left: 15px;
+  white-space: nowrap;
+}
+
+.time-col-mid {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 15px;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+}
+
+.time-day {
+  font-size: 3rem;
+  font-family: var(--font-serif);
+  line-height: 1;
+  margin: 5px 0;
+  color: #111;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+/* Lịch Tháng */
+.calendar-wrapper {
+  margin-top: 2.5rem;
+}
+
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.cal-header-row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  background: #fadadd;
+  border-radius: 20px;
+  padding: 6px 0;
+  margin-bottom: 10px;
+}
+
+.cal-header-day {
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: #555;
+  transition: all 0.3s ease;
+}
+
+.cal-day {
+  font-size: 0.8rem;
+  padding: 10px 0;
+  position: relative;
+  color: #555;
+  transition: all 0.3s ease;
+}
+
+.cal-day.highlight::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 35px;
+  height: 35px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23ff8fa3" stroke-width="1.2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>');
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: -1;
+  transition: all 0.3s ease;
+}
+
+/* 5. Map & Album */
+.map-section {
+  text-align: center;
+  padding-top: 1rem;
+}
+
+.btn-outline {
+  display: inline-block;
+  padding: 8px 20px;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  background: #fff;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  color: #333;
+  text-decoration: none;
+  margin: 15px 0;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  background: var(--accent-color);
+  color: #fff;
+  border-color: var(--accent-color);
+}
+
+.map-frame {
+  width: 100%;
+  height: 250px;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.masonry-grid {
+  display: column;
+  column-count: 2;
+  column-gap: 10px;
+  margin-top: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  width: 100%;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.masonry-item:hover {
+  transform: scale(1.02);
+}
+
+/* Form UI */
+.form-input {
+  width: 100%;
+  padding: 14px 15px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  outline: none;
+  margin-bottom: 15px;
+  background: #fafafa;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 14px;
+  background: #e5b2b2;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.btn-primary:hover {
+  background: #d69a9a;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 2.5rem 2rem;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 400px;
+  position: relative;
+  text-align: center;
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 1.5rem;
+  color: #999;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   Desktop Layout (Giao diện đáp ứng trên Website / Màn hình máy tính)
+   ========================================================================== */
+
+@media (min-width: 768px) {
+
+  /* Gỡ bỏ khung hẹp, nới rộng thành 1000px, căn giữa hoàn hảo */
+  .section,
+  .hero-section {
+    max-width: 1300px;
+    padding: 5rem 2rem;
+  }
+
+  .section::before { width: 250px; height: 250px; opacity: 0.15; top: -50px; left: -50px; }
+  .section::after { width: 300px; height: 300px; opacity: 0.12; bottom: -50px; right: -50px; }
+
+  /* 1. Hero Section: Nâng cấp thẩm mỹ 2 cột */
+  .hero-section {
+    max-width: 1300px;
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    grid-template-areas: "text image";
+    align-items: center;
+    gap: 4rem;
+    min-height: 90vh;
+    padding: 4rem 6rem !important;
+    background: radial-gradient(circle at 10% 10%, #fff 0%, #faf8f5 50%, #fdf2f2 100%);
+  }
+
+  .hero-text-content {
+    grid-area: text;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-header {
+    text-align: center !important;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(229, 178, 178, 0.3);
+    width: 100%;
+  }
+
+  .hero-header h2 {
+    font-size: 3.5rem !important;
+    letter-spacing: -1px;
+    white-space: nowrap;
+  }
+
+  .hero-header h3 {
+    font-size: 2.5rem !important;
+    margin-top: 5px;
+    color: #555 !important;
+  }
+
+  .hero-footer {
+    width: 100%;
+    margin-top: 0;
+  }
+
+  .hero-image-container {
+    grid-area: image;
+    padding: 20px;
+    position: relative;
+  }
+
+  .hero-image-container::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border: 1px solid #e5b2b2;
+    border-radius: 300px 300px 20px 20px;
+    margin: 5px;
+    z-index: 0;
+  }
+
+  .hero-image-container img {
+    max-width: 100%;
+    border-radius: 300px 300px 20px 20px;
+    box-shadow: 20px 20px 60px rgba(0,0,0,0.05), -20px -20px 60px rgba(255,255,255,0.8);
+    position: relative;
+    z-index: 1;
+  }
+
+  .date-block-container {
+    justify-content: center !important;
+  }
+
+  .date-col-1,
+  .date-col-3 {
+    font-size: 1.1rem;
+  }
+
+  .music-icon {
+    right: 30px !important;
+    bottom: 30px !important;
+    top: auto !important;
+    left: auto !important;
+    width: 60px;
+    height: 60px;
+  }
+
+  /* 2. Family Section: Rộng rãi hơn, chữ to, sang trọng như tạp chí */
+  .family-block {
+    gap: 4rem;
+    align-items: center;
+    margin-bottom: 5rem;
+  }
+
+  .family-block .img-col {
+    flex: 0 0 40%;
+  }
+
+  .family-block .img-col img {
+    min-height: 400px;
+    border-radius: 15px;
+  }
+
+  .title-font {
+    font-size: 4rem !important;
+  }
+
+  .sans-font {
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+  }
+
+  .parent-name {
+    font-size: 0.9rem;
+  }
+
+  /* 3. Gallery Section: Khối 3 ảnh ghép trải dài theo chiều ngang */
+  .slider-item {
+    flex: 0 0 20%; 
+  }
+  .slider-item img {
+    height: 350px;
+  }
+
+  .collage-img-main {
+    grid-row: span 1;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .collage-img-sub {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  /* 4. Ceremony Section: Biến thành một tấm Thẻ lớn bóng bẩy giữa màn hình */
+  .ceremony-card {
+    max-width: 700px;
+    padding: 4rem 3rem;
+  }
+
+  .time-day {
+    font-size: 4.5rem;
+  }
+
+  .cal-day {
+    font-size: 1.1rem;
+    padding: 15px 0;
+  }
+
+  .cal-day.highlight::before {
+    width: 45px;
+    height: 45px;
+  }
+
+  .cal-header-day {
+    font-size: 0.85rem;
+  }
+
+  /* 5. Map & Album: Bản đồ lớn, Lưới ảnh bung thành 3 cột */
+  .map-frame {
+    height: 400px;
+    border-radius: 20px;
+  }
+
+  .masonry-grid {
+    column-count: 3;
+    column-gap: 20px;
+  }
+
+  .masonry-item {
+    margin-bottom: 20px;
+  }
+
+  /* Nút RSVP bự và rõ ràng hơn */
+  .btn-primary {
+    padding: 18px;
+    font-size: 1rem;
+    max-width: 350px !important;
+  }
+
+  .modal-content {
+    max-width: 500px;
+    padding: 3.5rem 3rem;
+  }
+}
+
+@media (min-width: 1200px) {
+
+  /* Cho màn hình máy tính bàn lớn (Desktop rộng), Album chuyển sang 4 cột */
+  .section,
+  .hero-section {
+    max-width: 1200px;
+  }
+
+  .masonry-grid {
+    column-count: 4;
+  }
 }

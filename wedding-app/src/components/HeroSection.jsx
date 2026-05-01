@@ -1,80 +1,76 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React from 'react';
+import { motion } from 'framer-motion';
+import weddingData from '../wedding-data.json';
 
 const HeroSection = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const { couple, event, images, labels } = weddingData;
 
   return (
-    <section className="section hero-section">
-      {/* Rèm trái */}
-      <motion.div
-        className="curtain curtain-left"
-        initial={{ x: 0 }}
-        animate={{ x: isOpen ? '-100%' : 0 }}
-        transition={{ duration: 2, ease: "easeInOut" }}
-      >
-        <div className="curtain-inner"></div>
-      </motion.div>
-      
-      {/* Rèm phải */}
-      <motion.div
-        className="curtain curtain-right"
-        initial={{ x: 0 }}
-        animate={{ x: isOpen ? '100%' : 0 }}
-        transition={{ duration: 2, ease: "easeInOut" }}
-      >
-        <div className="curtain-inner"></div>
-      </motion.div>
-
-      {/* Nút bấm để mở thiệp nằm đè lên trên rèm */}
-      <AnimatePresence>
-        {!isOpen && (
-          <motion.div 
-            className="open-btn-container"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 1.2 }}
-            transition={{ duration: 0.5 }}
-            onClick={() => setIsOpen(true)}
-          >
-            <button className="open-btn title-font">Mở Thiệp</button>
-            <p className="sans-font mt-2" style={{ color: '#fff', textShadow: '0 2px 4px rgba(0,0,0,0.8)', fontSize: '0.8rem', letterSpacing: '2px' }}>CHẠM ĐỂ XEM</p>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Nội dung bên trong sẽ hiện ra sau khi mở rèm */}
-      <div className="hero-content">
-        <motion.h2 
-          className="sans-font text-accent mb-2"
-          style={{ letterSpacing: '6px', fontSize: '1.2rem' }}
-          initial={{ scale: 1.5, opacity: 0 }}
-          animate={{ scale: isOpen ? 1 : 1.5, opacity: isOpen ? 1 : 0 }}
-          transition={{ duration: 1.5, delay: 0.5, ease: "easeOut" }}
+    <section className="hero-section">
+      <div className="hero-text-content">
+        <motion.div
+          className="hero-header"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
         >
-          SAVE THE DATE
-        </motion.h2>
+          <h2 className="title-font" style={{ fontSize: '3.5rem', marginBottom: '-5px' }}>{labels.saveTheDate}</h2>
+          <h3 className="title-font" style={{ fontSize: '2rem', color: '#444' }}>{labels.coupleNames}</h3>
+        </motion.div>
 
-        <motion.h1 
-          className="title-font mb-4"
-          style={{ fontSize: '4.5rem' }}
-          initial={{ y: 30, opacity: 0 }}
-          animate={{ y: isOpen ? 0 : 30, opacity: isOpen ? 1 : 0 }}
+        <motion.div
+          className="hero-footer"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1 }}
         >
-          Trọng Khang & Minh Anh
-        </motion.h1>
+          <div className="date-block-container" style={{ marginTop: '30px' }}>
+            <div className="date-col-1 sans-font">
+              <div>{event.mainDate.time}</div>
+              <div style={{ marginTop: '2px' }}>{event.mainDate.dayOfWeek}</div>
+            </div>
+            <div className="date-col-2">{event.mainDate.day}.{event.mainDate.month}</div>
+            <div className="date-col-3 sans-font">
+              <div>{event.mainDate.yearShort}</div>
+              <div style={{ marginTop: '2px' }}>{event.mainDate.yearFull.slice(-2)}</div>
+            </div>
+          </div>
 
-        <motion.div 
-          className="hero-image"
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: isOpen ? 1 : 0, scale: isOpen ? 1 : 0.9 }}
-          transition={{ duration: 1.5, delay: 1.5 }}
-        >
-          {/* Ảnh Cô Dâu Chú Rể */}
-          <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=80" alt="Cô Dâu Chú Rể" />
+          <div className="serif-font" style={{ fontStyle: 'italic', fontSize: '0.85rem', color: '#777', textAlign: 'center', marginTop: '5px' }}>
+            (Tức Ngày {event.mainDate.lunarDate})
+          </div>
         </motion.div>
       </div>
+
+      <motion.div
+        className="hero-image-container"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.5, delay: 0.5 }}
+      >
+        <img src={images.hero} alt="Couple" style={{ marginTop: '20px' }} />
+      </motion.div>
+
+      {/* Icon cuộn xuống tối giản */}
+      <motion.div 
+        className="scroll-down-simple"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2 }}
+      >
+        <svg width="30" height="20" viewBox="0 0 30 20" fill="none">
+          <motion.path 
+            d="M5 5 L15 15 L25 5" 
+            stroke="#888" 
+            strokeWidth="1.5" 
+            strokeLinecap="round" 
+            strokeLinejoin="round"
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          />
+        </svg>
+        <span className="serif-font" style={{ fontSize: '0.7rem', color: '#888', letterSpacing: '1px' }}>Kéo xuống</span>
+      </motion.div>
     </section>
   );
 };

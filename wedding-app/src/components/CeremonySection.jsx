@@ -1,45 +1,120 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import weddingData from '../wedding-data.json';
 
 const CeremonySection = () => {
+  const { ceremony } = weddingData.event;
+  const { labels, images } = weddingData;
+
   return (
-    <section className="section ceremony-section">
-      <motion.div className="frame-box" initial={{ scale: 0.9, opacity: 0 }} whileInView={{ scale: 1, opacity: 1 }} viewport={{ once: true }}>
-        <h2 className="title-font mb-3 text-accent" style={{ fontSize: '3rem' }}>Lễ Thành Hôn</h2>
-        <p className="sans-font mb-2">Vào lúc 10:30 Sáng</p>
-        <p className="sans-font mb-1" style={{ fontSize: '1.1rem', fontWeight: 'bold' }}>Thứ Sáu, Ngày 15 Tháng 5 Năm 2026</p>
-        <p className="serif-font mb-3" style={{ fontStyle: 'italic', color: '#666' }}>(Tức ngày 29 tháng 3 năm Bính Ngọ)</p>
-        
-        <div className="divider"></div>
-        
-        <h3 className="sans-font text-accent mt-3 mb-2">TẠI TRUNG TÂM TIỆC CƯỚI HAPPY WEDDING</h3>
-        <p className="serif-font" style={{ fontSize: '1.2rem' }}>Số 1, Đường Hạnh Phúc, Quận Tình Yêu, Hà Nội</p>
-      </motion.div>
-
-      <motion.div className="calendar mt-4" initial={{ y: 30, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} viewport={{ once: true }}>
-        <h3 className="sans-font mb-3">THÁNG 5 . 2026</h3>
-        <div className="calendar-grid">
-          {['T2','T3','T4','T5','T6','T7','CN'].map(d => <div key={d} className="cal-day head">{d}</div>)}
-          {/* Padding cho ngày 1 vào thứ 6 (chỉ là giả lập) */}
-          <div></div><div></div><div></div><div></div>
-          {/* Các ngày */}
-          {[...Array(31)].map((_, i) => (
-             <div key={i} className={`cal-day ${i+1 === 15 ? 'highlight' : ''}`}>{i+1}</div>
-          ))}
+    <section className="section" style={{ padding: '2rem 1.5rem', textAlign: 'center' }}>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1 }}
+      >
+        {/* Tiêu đề Thư Mời */}
+        <div className="fancy-divider">
+          <h2 className="title-font" style={{ fontSize: '3rem', margin: '0' }}>{labels.invitationTitle}</h2>
         </div>
-      </motion.div>
+        <p className="sans-font" style={{ fontSize: '0.8rem', letterSpacing: '2px', color: '#666', marginBottom: '2rem' }}>
+          {labels.invitationSubtitle} {labels.coupleNames}
+        </p>
 
-      <motion.div className="map-container mt-4" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
-        <iframe 
-          title="Bản đồ địa điểm tổ chức"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.926558661642!2d105.816454215332!3d21.03562449292156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab145bf89bd7%3A0xd94a869d494c04b6!2zMjggUC4gTGnhu4V1IEdpYWksIEPhu5FuZyBW4buLLCBCYSDEkMOsbmgsIEjDoCBO4buZaSAxMDAwMDAsIFZpZXRuYW0!5e0!3m2!1sen!2s!4v1683884332908!5m2!1sen!2s" 
-          width="100%" 
-          height="350" 
-          style={{ border: 0, borderRadius: '12px' }} 
-          allowFullScreen="" 
-          loading="lazy" 
-          referrerPolicy="no-referrer-when-downgrade">
-        </iframe>
+        {/* Khối Ảnh Slider Cover Flow */}
+        <div className="photo-slider-container">
+          <div className="photo-slider">
+            {images.gallery.map((img, index) => (
+              <motion.div 
+                key={index}
+                className="slider-item"
+                initial={{ opacity: 0.5, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: false, amount: 0.8 }}
+                transition={{ duration: 0.4 }}
+              >
+                <img src={img} alt={`Gallery ${index}`} />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Buổi lễ 1: Lễ Thành Hôn (Tư gia) */}
+        <div className="ceremony-info-block" style={{ marginBottom: '3rem' }}>
+          <h3 className="sans-font" style={{ fontWeight: 600, fontSize: '1rem', color: '#222', textTransform: 'uppercase', letterSpacing: '2px' }}>{ceremony.title}</h3>
+          <p className="serif-font" style={{ fontStyle: 'italic', color: '#777', margin: '10px 0' }}>Vào lúc</p>
+          
+          <div className="ceremony-time-block">
+            <div className="sans-font" style={{ whiteSpace: 'nowrap' }}>{ceremony.time}</div>
+            <div className="time-col-mid">
+              <div className="sans-font" style={{ fontSize: '0.75rem' }}>{ceremony.dayOfWeek}</div>
+              <div className="time-day">{ceremony.day}</div>
+              <div className="sans-font" style={{ fontSize: '0.75rem' }}>Tháng {ceremony.month}</div>
+            </div>
+            <div className="sans-font" style={{ whiteSpace: 'nowrap' }}>Năm {ceremony.year}</div>
+          </div>
+
+          <p className="serif-font" style={{ fontStyle: 'italic', fontSize: '0.85rem', color: '#888', marginTop: '10px' }}>
+            (Tức Ngày {ceremony.lunarDate})
+          </p>
+          <p className="serif-font" style={{ marginTop: '15px', color: '#444', fontSize: '1.1rem' }}>
+            {ceremony.location}
+          </p>
+        </div>
+
+        {/* Buổi lễ 2: Tiệc Mừng (Trong khung Card như ảnh mẫu) */}
+        <div className="ceremony-summary-card" style={{ 
+          border: '1px solid #e0e0e0', 
+          borderRadius: '15px', 
+          padding: '2rem 1.5rem', 
+          marginBottom: '3rem',
+          background: 'rgba(255,255,255,0.5)'
+        }}>
+          <h3 className="sans-font" style={{ fontWeight: 600, fontSize: '0.9rem', color: '#222', textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '1.5rem' }}>
+            {weddingData.event.ceremony2.title}
+          </h3>
+          
+          <div className="ceremony-time-display" style={{ marginBottom: '1rem' }}>
+            <span className="sans-font" style={{ fontSize: '1.1rem', fontWeight: 500 }}>{weddingData.event.ceremony2.time} - {weddingData.event.ceremony2.dayOfWeek}</span>
+            <div className="serif-font" style={{ fontSize: '1.5rem', fontWeight: 600, margin: '5px 0' }}>
+              {weddingData.event.ceremony2.day} . {weddingData.event.ceremony2.month} . {weddingData.event.ceremony2.year}
+            </div>
+          </div>
+
+          <p className="serif-font" style={{ fontStyle: 'italic', fontSize: '0.9rem', color: '#777' }}>
+            (Tức Ngày {weddingData.event.ceremony2.lunarDate})
+          </p>
+          <p className="serif-font" style={{ marginTop: '10px', color: '#444', fontSize: '1rem' }}>
+            {weddingData.event.ceremony2.location}
+          </p>
+        </div>
+
+        {/* Khối Lịch */}
+        <div className="calendar-wrapper">
+          <h4 className="sans-font" style={{ fontSize: '1.1rem', letterSpacing: '3px', marginBottom: '5px', color: '#333', fontWeight: 600 }}>SAVE THE DATE</h4>
+          <p className="sans-font" style={{ letterSpacing: '2px', marginBottom: '20px', color: '#888', fontSize: '0.85rem' }}>THÁNG {parseInt(ceremony.month)} - {ceremony.year}</p>
+          
+          <div className="cal-header-row">
+            {['T2','T3','T4','T5','T6','T7','CN'].map(d => (
+              <div key={d} className="cal-header-day">{d}</div>
+            ))}
+          </div>
+          <div className="cal-grid">
+            <div></div><div></div><div></div>
+            {[...Array(31)].map((_, i) => (
+              <div key={i} className={`cal-day ${i+1 === parseInt(ceremony.day) ? 'highlight' : ''}`}>
+                {i+1}
+              </div>
+            ))}
+          </div>
+          
+          <div style={{ marginTop: '2rem', display: 'flex', justifyContent: 'center' }}>
+            <svg width="150" height="20" viewBox="0 0 150 20">
+              <path d="M10,10 Q40,20 70,10 T130,10" fill="none" stroke="#e5b2b2" strokeWidth="1"/>
+            </svg>
+          </div>
+        </div>
       </motion.div>
     </section>
   );

@@ -1,0 +1,79 @@
+{
+  "couple": {
+    "groom": {
+      "name": "Tiến Anh",
+      "fullName": "TRẦN TIẾN ANH",
+      "father": "ÔNG TRẦN ĐĂNG TOÀN",
+      "mother": "BÀ PHẠM THỊ PHƯƠNG",
+      "address": "Nhà Thờ, Thôn Ngâm Lương, xã Đông Cứu",
+      "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80"
+    },
+    "bride": {
+      "name": "Đỗ Tuấn",
+      "fullName": "ĐỖ TUẤN",
+      "father": "ÔNG ĐỖ ĐỨC GIỚI",
+      "mother": "BÀ NGUYỄN THỊ NAM",
+      "address": "Ngọc Tỉnh, Xã Đông Cứu",
+      "image": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80"
+    }
+  },
+  "event": {
+    "mainDate": {
+      "time": "16:00",
+      "dayOfWeek": "THỨ 7",
+      "day": "03",
+      "month": "01",
+      "yearShort": "20",
+      "yearFull": "2026",
+      "lunarDate": "15 Tháng 11 Năm Ất Tỵ"
+    },
+    "ceremony": {
+      "title": "LỄ THÀNH HÔN",
+      "time": "10:00",
+      "dayOfWeek": "Chủ Nhật",
+      "day": "04",
+      "month": "01",
+      "year": "2026",
+      "lunarDate": "16 Tháng 11 Năm Ất Tỵ",
+      "location": "Tại Tư Gia Nhà Trai",
+      "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.926558661642!2d105.816454215332!3d21.03562449292156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjHCsDAyJzA4LjIiTiAxMDXCsDQ5JzExLjIiRQ!5e0!3m2!1sen!2s!4v1683884332908!5m2!1sen!2s",
+      "mapGoogleLink": "https://maps.app.goo.gl/xxx"
+    },
+    "ceremony2": {
+      "title": "TIỆC MỪNG LỄ THÀNH HÔN",
+      "time": "16:00",
+      "dayOfWeek": "Thứ 7",
+      "day": "03",
+      "month": "01",
+      "year": "2026",
+      "lunarDate": "15 Tháng 11 Năm Ất Tỵ",
+      "location": "Tại Trung Tâm Hội Nghị Tiệc Cưới ABC",
+      "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.926558661642!2d105.816454215332!3d21.03562449292156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjHCsDAyJzA4LjIiTiAxMDXCsDQ5JzExLjIiRQ!5e0!3m2!1sen!2s!4v1683884332908!5m2!1sen!2s",
+      "mapGoogleLink": "https://maps.app.goo.gl/xxx"
+    }
+  },
+  "images": {
+    "hero": "./images/anhNenCuoi.jpg",
+    "gallery": [
+      "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=400&q=80",
+      "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=300&q=80",
+      "https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=300&q=80"
+    ],
+    "album": [
+      "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=400&q=80",
+      "https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=400&q=80",
+      "https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&fit=crop&w=400&q=80",
+      "https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=400&q=80"
+    ]
+  },
+  "labels": {
+    "saveTheDate": "Lễ Thành Hôn",
+    "coupleNames": "Phí Thu & Chú rể",
+    "invitationTitle": "Thư Mời",
+    "invitationSubtitle": "THAM DỰ LỄ CƯỚI",
+    "albumTitle": "Album hình cưới",
+    "rsvpTitle": "Rsvp",
+    "rsvpSubtitle": "Rất mong được đón tiếp bạn tại buổi tiệc",
+    "confirmButton": "XÁC NHẬN THAM DỰ"
+  }
+}
