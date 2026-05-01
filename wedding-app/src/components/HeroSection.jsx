@@ -6,7 +6,15 @@ const HeroSection = () => {
   const { couple, event, images, labels } = weddingData;
 
   return (
-    <section className="hero-section">
+    <section 
+      className="hero-section" 
+      style={{ 
+        backgroundImage: "url('/images/anhNenDamCuoiTrang1.png')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
       <div className="hero-text-content">
         <motion.div
           className="hero-header"
@@ -36,7 +44,7 @@ const HeroSection = () => {
             </div>
           </div>
 
-          <div className="serif-font" style={{ fontStyle: 'italic', fontSize: '0.85rem', color: '#777', textAlign: 'center', marginTop: '5px' }}>
+          <div className="serif-font" style={{ fontStyle: 'italic', fontSize: '0.9rem', color: '#fff', textAlign: 'center', marginTop: '10px', textShadow: '0 1px 3px rgba(0,0,0,0.5)' }}>
             (Tức Ngày {event.mainDate.lunarDate})
           </div>
         </motion.div>

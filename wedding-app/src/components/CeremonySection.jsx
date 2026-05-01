@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import weddingData from '../wedding-data.json';
 
 const CeremonySection = () => {
   const { ceremony } = weddingData.event;
   const { labels, images } = weddingData;
+  
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % images.gallery.length);
+    }, 3000); // Tự trượt mỗi 3 giây
+    return () => clearInterval(timer);
+  }, [images.gallery.length]);
 
   return (
     <section className="section" style={{ padding: '2rem 1.5rem', textAlign: 'center' }}>
@@ -14,29 +23,46 @@ const CeremonySection = () => {
         viewport={{ once: true }}
         transition={{ duration: 1 }}
       >
-        {/* Tiêu đề Thư Mời */}
-        <div className="fancy-divider">
-          <h2 className="title-font" style={{ fontSize: '3rem', margin: '0' }}>{labels.invitationTitle}</h2>
+        <div className="elegant-album-header">
+          <h2 className="title-font">{labels.invitationTitle}</h2>
+          <div className="album-divider">
+            <span className="line"></span>
+            <span className="heart">❤</span>
+            <span className="line"></span>
+          </div>
+          <p className="serif-font" style={{ fontSize: '0.9rem', color: '#666', marginTop: '5px' }}>
+            {labels.invitationSubtitle} {labels.coupleNames}
+          </p>
         </div>
-        <p className="sans-font" style={{ fontSize: '0.8rem', letterSpacing: '2px', color: '#666', marginBottom: '2rem' }}>
-          {labels.invitationSubtitle} {labels.coupleNames}
-        </p>
 
-        {/* Khối Ảnh Slider Cover Flow */}
-        <div className="photo-slider-container">
-          <div className="photo-slider">
-            {images.gallery.map((img, index) => (
-              <motion.div 
-                key={index}
-                className="slider-item"
-                initial={{ opacity: 0.5, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: false, amount: 0.8 }}
-                transition={{ duration: 0.4 }}
-              >
-                <img src={img} alt={`Gallery ${index}`} />
-              </motion.div>
-            ))}
+        {/* Khối Ảnh Slider 3D Coverflow Auto-scroll */}
+        <div className="photo-slider-wrapper">
+          <div className="photo-slider-3d">
+            {images.gallery.map((img, index) => {
+              let offset = index - activeIndex;
+              const len = images.gallery.length;
+              if (offset > Math.floor(len / 2)) offset -= len;
+              if (offset < -Math.floor(len / 2)) offset += len;
+              
+              const isActive = offset === 0;
+
+              return (
+                <motion.div 
+                  key={index}
+                  className="slider-item-3d"
+                  animate={{ 
+                    x: `calc(-50% + ${offset * 75}%)`, // Dịch chuyển sang hai bên
+                    y: '-50%',
+                    scale: isActive ? 1.2 : 0.8, // Ảnh giữa to, ảnh phụ nhỏ lại 
+                    rotateY: offset * -25, // Nghiêng 25 độ
+                    zIndex: isActive ? 10 : 5 - Math.abs(offset)
+                  }}
+                  transition={{ duration: 0.8, ease: "easeInOut" }}
+                >
+                  <img src={img} alt={`Gallery ${index}`} />
+                </motion.div>
+              );
+            })}
           </div>
         </div>
 

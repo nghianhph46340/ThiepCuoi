@@ -1,15 +1,19 @@
 import React from 'react';
 import HeroSection from './components/HeroSection';
+import PoemSection from './components/PoemSection';
 import FamilySection from './components/FamilySection';
-import GallerySection from './components/GallerySection';
 import CeremonySection from './components/CeremonySection';
 import AlbumSection from './components/AlbumSection';
 import RsvpSection from './components/RsvpSection';
+import Petals from './components/Petals';
 
 function App() {
   return (
     <div className="wedding-app">
+      <Petals />
       <HeroSection />
+
+      <PoemSection />
       <FamilySection />
       <CeremonySection />
       <AlbumSection />

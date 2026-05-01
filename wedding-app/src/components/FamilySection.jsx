@@ -17,8 +17,8 @@ const FamilySection = () => {
           <p className="sans-font parent-name">{groom.father}</p>
           <p className="sans-font parent-name" style={{ marginTop: '3px' }}>{groom.mother}</p>
           <p className="serif-font" style={{ fontSize: '0.8rem', marginTop: '12px', color: '#666' }}>{groom.address}</p>
-          <p className="serif-font" style={{ fontStyle: 'italic', color: '#888', marginTop: '20px' }}>Chú Rể</p>
-          <h3 className="title-font" style={{ fontSize: '3rem', marginTop: '-5px', color: '#333' }}>{groom.name}</h3>
+          <p className="serif-font" style={{ fontStyle: 'italic', color: '#888', marginTop: '15px', fontSize: '0.9rem' }}>Chú Rể</p>
+          <h3 className="title-font" style={{ fontSize: '2.2rem', marginTop: '-5px', color: '#333', whiteSpace: 'nowrap' }}>{groom.name}</h3>
         </div>
       </motion.div>
 
@@ -32,8 +32,8 @@ const FamilySection = () => {
           <p className="sans-font parent-name">{bride.father}</p>
           <p className="sans-font parent-name" style={{ marginTop: '3px' }}>{bride.mother}</p>
           <p className="serif-font" style={{ fontSize: '0.8rem', marginTop: '12px', color: '#666' }}>{bride.address}</p>
-          <p className="serif-font" style={{ fontStyle: 'italic', color: '#888', marginTop: '20px' }}>Cô Dâu</p>
-          <h3 className="title-font" style={{ fontSize: '3rem', marginTop: '-5px', color: '#333' }}>{bride.name}</h3>
+          <p className="serif-font" style={{ fontStyle: 'italic', color: '#888', marginTop: '15px', fontSize: '0.9rem' }}>Cô Dâu</p>
+          <h3 className="title-font" style={{ fontSize: '2.2rem', marginTop: '-5px', color: '#333', whiteSpace: 'nowrap' }}>{bride.name}</h3>
         </div>
       </motion.div>
     </section>

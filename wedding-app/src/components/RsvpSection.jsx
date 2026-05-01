@@ -14,8 +14,15 @@ const RsvpSection = () => {
 
   return (
     <section className="section text-center" style={{ paddingBottom: '6rem' }}>
-      <h2 className="title-font" style={{ fontSize: '3.5rem', marginBottom: '0.5rem' }}>{labels.rsvpTitle}</h2>
-      <p className="serif-font" style={{ color: '#666', marginBottom: '2rem', fontSize: '0.9rem' }}>{labels.rsvpSubtitle}</p>
+      <div className="elegant-album-header">
+        <h2 className="title-font">{labels.rsvpTitle}</h2>
+        <div className="album-divider">
+          <span className="line"></span>
+          <span className="heart">❤</span>
+          <span className="line"></span>
+        </div>
+        <p className="serif-font" style={{ fontSize: '0.9rem', color: '#666', marginTop: '5px' }}>{labels.rsvpSubtitle}</p>
+      </div>
       
       <button className="btn-primary" style={{ width: '80%', maxWidth: '280px' }} onClick={() => setShowRsvp(true)}>
         {labels.confirmButton}

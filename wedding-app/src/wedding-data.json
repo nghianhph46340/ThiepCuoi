@@ -53,7 +53,7 @@
     }
   },
   "images": {
-    "hero": "./images/anhNenCuoi.jpg",
+    "hero": "/images/anhNenCuoi.jpg",
     "gallery": [
       "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=400&q=80",
       "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=300&q=80",
@@ -72,7 +72,7 @@
     "invitationTitle": "Thư Mời",
     "invitationSubtitle": "THAM DỰ LỄ CƯỚI",
     "albumTitle": "Album hình cưới",
-    "rsvpTitle": "Rsvp",
+    "rsvpTitle": "Thank you",
     "rsvpSubtitle": "Rất mong được đón tiếp bạn tại buổi tiệc",
     "confirmButton": "XÁC NHẬN THAM DỰ"
   }

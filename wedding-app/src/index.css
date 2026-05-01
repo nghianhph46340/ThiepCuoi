@@ -5,7 +5,7 @@
   /* Màu hồng phấn */
   --bg-color: #faf8f5;
   /* Màu be ngà sáng */
-  --font-title: 'Alex Brush', cursive;
+  --font-title: 'Pinyon Script', cursive;
   --font-serif: 'Cormorant Garamond', serif;
   --font-sans: 'Montserrat', sans-serif;
 }
@@ -20,7 +20,7 @@ body {
   font-family: var(--font-serif);
   color: var(--text-color);
   background-color: var(--bg-color);
-  /* Nền hoa văn chìm cho toàn trang - Đậm hơn */
+  /* Khôi phục nền hoa văn chìm cho toàn trang */
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" opacity="0.08"><path d="M10,10 Q30,0 50,10 T90,10" fill="none" stroke="%23e5b2b2" stroke-width="0.6"/><circle cx="50" cy="50" r="1" fill="%23e5b2b2"/></svg>');
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -38,10 +38,35 @@ body {
   max-width: 450px; 
   margin: 0 auto; 
   transition: all 0.3s ease; 
-  overflow: hidden; 
+  overflow: hidden;
 }
 
-/* Họa tiết góc trái trên - Đậm hơn */
+.hero-section {
+  background-image: url('/images/anhNenDamCuoiTrang1.png');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff; /* Đổi toàn bộ chữ sang trắng */
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3); /* Thêm bóng đổ để dễ đọc hơn */
+}
+
+.hero-section .title-font {
+  font-family: 'Pinyon Script', cursive !important;
+  color: #fff !important;
+}
+
+.hero-section h3.title-font {
+  font-family: var(--font-serif) !important; /* Giữ tên cô dâu chú rể dễ đọc */
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+
+/* Khôi phục họa tiết góc trái trên */
 .section::before {
   content: '';
   position: absolute;
@@ -56,7 +81,7 @@ body {
   z-index: 0;
 }
 
-/* Họa tiết góc phải dưới - Đậm hơn */
+/* Khôi phục họa tiết góc phải dưới */
 .section::after {
   content: '';
   position: absolute;
@@ -174,44 +199,38 @@ img {
   align-items: center;
   justify-content: center;
   gap: 15px;
-  margin-bottom: 5px;
-  transition: all 0.3s ease;
+  color: #fff;
 }
 
-.date-col-1 {
-  flex: 1;
-  text-align: right;
-  line-height: 1.5;
-  color: #333;
-  font-weight: 500;
+.date-col-1, .date-col-3 {
+  text-align: center;
   font-size: 0.8rem;
-  padding-right: 15px;
-  white-space: nowrap;
+  letter-spacing: 1px;
+  line-height: 1.3;
+  color: #fff; /* Trắng tinh khiết */
+  font-weight: 500;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
 }
 
 .date-col-2 {
-  font-size: 3rem;
   font-family: var(--font-serif);
+  font-size: 2.5rem; /* To hơn một chút */
   font-weight: 600;
-  padding: 0 15px;
-  border-left: 1px solid #aaa;
-  border-right: 1px solid #aaa;
-  line-height: 1;
-  color: #111;
-  flex: 0 0 auto;
+  padding: 0 20px;
+  color: #fff;
+  border-left: 1.5px solid rgba(255,255,255,0.7);
+  border-right: 1.5px solid rgba(255,255,255,0.7);
+  text-shadow: 0 2px 5px rgba(0,0,0,0.4);
 }
 
 .date-col-3 {
-  flex: 1;
   text-align: left;
   display: flex;
   flex-direction: column;
   line-height: 1.2;
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: #333;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
   padding-left: 15px;
-  white-space: nowrap;
 }
 
 .music-icon {
@@ -313,28 +332,67 @@ img {
   display: none; 
 }
 
-.photo-slider {
-  display: flex;
-  gap: 12px;
-  padding: 0 30px;
-  scroll-snap-type: x mandatory;
-  align-items: center;
-}
-
-.slider-item {
-  flex: 0 0 40%; /* Thu nhỏ để thấy được 3 ảnh trên mobile */
-  scroll-snap-align: center;
-  border-radius: 12px;
+/* 3D Photo Slider Coverflow */
+.photo-slider-wrapper {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%); /* Bung toàn màn hình ngang */
+  padding: 1.5rem 0; /* Thu nhỏ khoảng cách padding trên/dưới */
+  perspective: 1200px;
   overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-  transition: transform 0.4s ease, opacity 0.4s ease;
+  background: transparent;
 }
 
-.slider-item img {
+.photo-slider-3d {
+  position: relative;
+  height: 440px; /* Thu hẹp chiều cao sát với ảnh */
   width: 100%;
-  height: 220px; /* Chiều cao nhỏ gọn hơn */
+  perspective: 1200px;
+  transform-style: preserve-3d;
+  margin: 0 auto;
+}
+
+.slider-item-3d {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 250px; 
+  height: 350px;   
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+  /* Xoá blur, để ảnh rõ ràng theo yêu cầu */
+  filter: blur(0px) !important;
+  opacity: 1 !important;
+}
+
+.slider-item-3d img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  display: block;
+}
+
+/* Responsive: 5 ảnh trên Web, 3 ảnh trên Mobile */
+@media (min-width: 1024px) {
+  .photo-slider-3d {
+    height: 520px; /* Chiều cao sát với ảnh web */
+  }
+  .slider-item-3d {
+    width: 280px;
+    height: 420px;
+  }
+}
+
+@media (max-width: 768px) {
+  .photo-slider-wrapper {
+    padding: 0.5rem 0; /* Ép sát tối đa trên mobile */
+  }
+  .photo-slider-3d {
+    height: 320px; /* Chiều cao sát với ảnh mobile */
+  }
+  .slider-item-3d {
+    width: 160px;
+    height: 250px;
+  }
 }
 
 /* 4. Ceremony Section */
@@ -433,19 +491,35 @@ img {
   transition: all 0.3s ease;
 }
 
-.cal-day.highlight::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 35px;
-  height: 35px;
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23ff8fa3" stroke-width="1.2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>');
-  background-size: contain;
-  background-repeat: no-repeat;
-  z-index: -1;
-  transition: all 0.3s ease;
+/* Album Title Styling */
+.elegant-album-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.elegant-album-header .title-font {
+  font-size: 2.2rem;
+  margin-bottom: 5px;
+  color: #444;
+}
+
+.album-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.album-divider .line {
+  height: 1px;
+  background: linear-gradient(to right, transparent, #ccc, transparent);
+  flex: 0 0 80px; /* Độ dài đường kẻ */
+}
+
+.album-divider .heart {
+  color: #e5b2b2;
+  font-size: 0.8rem;
+  transform: translateY(1px);
 }
 
 /* 5. Map & Album */
@@ -785,5 +859,85 @@ img {
 
   .masonry-grid {
     column-count: 4;
+  }
+}
+/* Poem Section Styling */
+.poem-content {
+  max-width: 800px; /* Mở rộng để 1 câu nằm trọn 1 dòng */
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.poem-text {
+  font-size: 1rem; /* Thu nhỏ lại để tinh tế */
+  line-height: 1.8;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .poem-text {
+    font-size: 0.9rem; /* Điện thoại để nhỏ vừa đủ đọc */
+    line-height: 1.6;
+  }
+  .poem-content {
+    max-width: 320px;
+  }
+}
+
+/* Ép buộc kích thước vừa vặn cho bài thơ */
+.poem-text.title-font {
+  font-size: 1.25rem !important; /* Tăng lên một chút cho web */
+  line-height: 1.8 !important;
+}
+
+@media (max-width: 768px) {
+  .poem-text.title-font {
+    font-size: 1rem !important; /* Giữ nguyên cỡ này cho điện thoại là vừa đẹp */
+    line-height: 1.6 !important;
+  }
+}
+
+/* ==========================================================================
+   Petals Animation (Hiệu ứng cánh hoa rơi)
+   ========================================================================== */
+.petals-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none; /* Tránh click nhầm vào cánh hoa */
+  z-index: 9999; /* Phủ lên tất cả */
+  overflow: hidden;
+}
+
+.petal-wrapper {
+  position: absolute;
+  top: -10vh; /* Bắt đầu rơi từ trên màn hình một chút */
+  animation: fall linear infinite;
+}
+
+.petal-sway {
+  animation: sway ease-in-out infinite alternate;
+}
+
+/* Keyframes cho hiệu ứng rơi từ trên xuống dưới và hơi xoay vòng */
+@keyframes fall {
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg); /* Rơi qua màn hình */
+  }
+}
+
+/* Keyframes cho hiệu ứng lấp lửng bay theo gió ngang */
+@keyframes sway {
+  0% {
+    transform: translateX(-30px);
+  }
+  100% {
+    transform: translateX(30px);
   }
 }

@@ -35,7 +35,14 @@ const AlbumSection = () => {
       {/* Album Masonry */}
       <section className="section" style={{ paddingTop: 0 }}>
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="text-center">
-          <h2 className="title-font" style={{ fontSize: '3.5rem', marginBottom: '10px' }}>{labels.albumTitle}</h2>
+          <div className="elegant-album-header">
+            <h2 className="title-font">{labels.albumTitle}</h2>
+            <div className="album-divider">
+              <span className="line"></span>
+              <span className="heart">❤</span>
+              <span className="line"></span>
+            </div>
+          </div>
         </motion.div>
         
         <div className="masonry-grid">

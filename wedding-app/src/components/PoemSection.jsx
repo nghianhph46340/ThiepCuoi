@@ -3,20 +3,27 @@ import { motion } from 'framer-motion';
 
 const PoemSection = () => {
   return (
-    <motion.section 
+    <motion.section
       className="section poem-section"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 1.5 }}
-      style={{ backgroundColor: '#fafafa' }}
+      style={{ padding: '1.5rem 1.5rem 0.5rem 1.5rem', textAlign: 'center' }}
     >
-      <div className="poem-content" style={{ maxWidth: '600px', margin: '0 auto' }}>
-        <p className="serif-font text-accent" style={{ fontSize: '1.8rem', lineHeight: '2', fontStyle: 'italic', color: '#8c7635' }}>
-          "Tình yêu không phải là việc chúng ta nhìn chằm chằm vào nhau,<br/>
-          mà là việc chúng ta cùng nhau nhìn về một hướng."
+      <div className="poem-content">
+        <p className="poem-text title-font">
+          Tình yêu không phải là việc chúng ta nhìn chằm chằm vào nhau,<br />
+          mà là việc chúng ta cùng nhau nhìn về một hướng.
         </p>
-        <p className="sans-font mt-4" style={{ fontSize: '0.8rem', color: '#999' }}>— Antoine de Saint-Exupéry —</p>
+        <div className="album-divider">
+          <span className="line" style={{ flex: '0 0 50px' }}></span>
+          <span className="heart">❤</span>
+          <span className="line" style={{ flex: '0 0 50px' }}></span>
+        </div>
+        <p className="sans-font" style={{ fontSize: '0.75rem', color: '#999', letterSpacing: '2px', textTransform: 'uppercase' }}>
+          — Antoine de Saint-Exupéry —
+        </p>
       </div>
     </motion.section>
   );
