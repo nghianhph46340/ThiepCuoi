@@ -6,10 +6,10 @@ const HeroSection = () => {
   const { couple, event, images, labels } = weddingData;
 
   return (
-    <section 
-      className="hero-section" 
-      style={{ 
-        backgroundImage: "url('/images/anhNenDamCuoiTrang1.png')",
+    <section
+      className="hero-section"
+      style={{
+        backgroundImage: "url('/images/anhNemDamCuoiThu.png')",
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
@@ -60,18 +60,18 @@ const HeroSection = () => {
       </motion.div>
 
       {/* Icon cuộn xuống tối giản */}
-      <motion.div 
+      <motion.div
         className="scroll-down-simple"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2 }}
       >
         <svg width="30" height="20" viewBox="0 0 30 20" fill="none">
-          <motion.path 
-            d="M5 5 L15 15 L25 5" 
-            stroke="#888" 
-            strokeWidth="1.5" 
-            strokeLinecap="round" 
+          <motion.path
+            d="M5 5 L15 15 L25 5"
+            stroke="#888"
+            strokeWidth="1.5"
+            strokeLinecap="round"
             strokeLinejoin="round"
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}

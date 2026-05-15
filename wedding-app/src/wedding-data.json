@@ -1,74 +1,85 @@
 {
   "couple": {
     "groom": {
-      "name": "Tiến Anh",
+      "name": "Văn Nghĩa",
       "fullName": "TRẦN TIẾN ANH",
-      "father": "ÔNG TRẦN ĐĂNG TOÀN",
-      "mother": "BÀ PHẠM THỊ PHƯƠNG",
-      "address": "Nhà Thờ, Thôn Ngâm Lương, xã Đông Cứu",
-      "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80"
+      "father": "ÔNG: ĐỖ VĂN KHỞI",
+      "mother": "BÀ: NGUYỄN THỊ NHUẬN",
+      "address": "",
+      "image": "/images/wm/DSC02089.jpg"
     },
     "bride": {
-      "name": "Đỗ Tuấn",
-      "fullName": "ĐỖ TUẤN",
-      "father": "ÔNG ĐỖ ĐỨC GIỚI",
-      "mother": "BÀ NGUYỄN THỊ NAM",
-      "address": "Ngọc Tỉnh, Xã Đông Cứu",
-      "image": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80"
+      "name": "Phương Thu",
+      "fullName": "PHÍ THỊ THU",
+      "father": "ÔNG: PHÍ VĂN ĐỒNG",
+      "mother": "BÀ: NGUYỄN THỊ HƯỜNG",
+      "address": "",
+      "image": "/images/wm/DSC01876.jpg"
     }
   },
   "event": {
     "mainDate": {
-      "time": "16:00",
+      "time": "18:00",
       "dayOfWeek": "THỨ 7",
-      "day": "03",
-      "month": "01",
+      "day": "23",
+      "month": "05",
       "yearShort": "20",
       "yearFull": "2026",
-      "lunarDate": "15 Tháng 11 Năm Ất Tỵ"
+      "lunarDate": "07 Tháng 04 Năm Bính Ngọ"
     },
     "ceremony": {
       "title": "LỄ THÀNH HÔN",
-      "time": "10:00",
-      "dayOfWeek": "Chủ Nhật",
-      "day": "04",
-      "month": "01",
+      "time": "18:00",
+      "dayOfWeek": "Thứ bảy",
+      "day": "23",
+      "month": "05",
       "year": "2026",
-      "lunarDate": "16 Tháng 11 Năm Ất Tỵ",
-      "location": "Tại Tư Gia Nhà Trai",
+      "lunarDate": "07 Tháng 04 Năm Bính Ngọ",
+      "location": "Tại Nhà Hàng Hà Kiên - Thôn 21 Xã Tân Uyên, Tỉnh Lai Châu",
       "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.926558661642!2d105.816454215332!3d21.03562449292156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjHCsDAyJzA4LjIiTiAxMDXCsDQ5JzExLjIiRQ!5e0!3m2!1sen!2s!4v1683884332908!5m2!1sen!2s",
       "mapGoogleLink": "https://maps.app.goo.gl/xxx"
     },
     "ceremony2": {
       "title": "TIỆC MỪNG LỄ THÀNH HÔN",
-      "time": "16:00",
+      "time": "18:00",
       "dayOfWeek": "Thứ 7",
-      "day": "03",
-      "month": "01",
+      "day": "23",
+      "month": "05",
       "year": "2026",
-      "lunarDate": "15 Tháng 11 Năm Ất Tỵ",
-      "location": "Tại Trung Tâm Hội Nghị Tiệc Cưới ABC",
+      "lunarDate": "07 Tháng 04 Năm Bính Ngọ",
+      "location": "Tại Nhà Hàng Hà Kiên - Thôn 21 Xã Tân Uyên, Tỉnh Lai Châu",
       "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.926558661642!2d105.816454215332!3d21.03562449292156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjHCsDAyJzA4LjIiTiAxMDXCsDQ5JzExLjIiRQ!5e0!3m2!1sen!2s!4v1683884332908!5m2!1sen!2s",
       "mapGoogleLink": "https://maps.app.goo.gl/xxx"
     }
   },
   "images": {
-    "hero": "/images/anhNenCuoi.jpg",
+    "hero": "/images/wm/DSC01792.jpg",
     "gallery": [
-      "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=300&q=80",
-      "https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=300&q=80"
+      "/images/wm/8.jpg",
+      "/images/wm/DSC00554.jpg",
+      "/images/wm/DSC02454.jpg"
     ],
     "album": [
-      "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=400&q=80"
+      "/images/wm/8.jpg",
+      "/images/wm/DSC00554.jpg",
+      "/images/wm/DSC00864+.jpg",
+      "/images/wm/DSC01068.jpg",
+      "/images/wm/DSC01153.jpg",
+      "/images/wm/DSC01272.jpg",
+      "/images/wm/DSC01298.jpg",
+      "/images/wm/DSC01634.jpg",
+      "/images/wm/DSC01666 phong.jpg",
+      "/images/wm/DSC01792.jpg",
+      "/images/wm/DSC01851 ban.jpg",
+      "/images/wm/DSC01876.jpg",
+      "/images/wm/DSC02089.jpg",
+      "/images/wm/DSC02292.jpg",
+      "/images/wm/DSC02454.jpg"
     ]
   },
   "labels": {
     "saveTheDate": "Lễ Thành Hôn",
-    "coupleNames": "Phí Thu & Chú rể",
+    "coupleNames": "Văn Nghĩa & Phương Thu",
     "invitationTitle": "Thư Mời",
     "invitationSubtitle": "THAM DỰ LỄ CƯỚI",
     "albumTitle": "Album hình cưới",
