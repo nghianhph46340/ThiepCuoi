@@ -1,7 +1,7 @@
 {
   "couple": {
     "groom": {
-      "name": "Văn Nghĩa",
+      "name": "Đỗ Nghĩa",
       "fullName": "TRẦN TIẾN ANH",
       "father": "ÔNG: ĐỖ VĂN KHỞI",
       "mother": "BÀ: NGUYỄN THỊ NHUẬN",
@@ -9,7 +9,7 @@
       "image": "/images/wm/DSC02089.jpg"
     },
     "bride": {
-      "name": "Phương Thu",
+      "name": "Phí Thu",
       "fullName": "PHÍ THỊ THU",
       "father": "ÔNG: PHÍ VĂN ĐỒNG",
       "mother": "BÀ: NGUYỄN THỊ HƯỜNG",
@@ -79,7 +79,7 @@
   },
   "labels": {
     "saveTheDate": "Lễ Thành Hôn",
-    "coupleNames": "Văn Nghĩa & Phương Thu",
+    "coupleNames": "Đỗ Nghĩa & Phí Thu",
     "invitationTitle": "Thư Mời",
     "invitationSubtitle": "THAM DỰ LỄ CƯỚI",
     "albumTitle": "Album hình cưới",

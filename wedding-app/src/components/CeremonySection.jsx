@@ -130,7 +130,14 @@ const CeremonySection = () => {
             <div></div><div></div><div></div>
             {[...Array(31)].map((_, i) => (
               <div key={i} className={`cal-day ${i+1 === parseInt(ceremony.day) ? 'highlight' : ''}`}>
-                {i+1}
+                {i+1 === parseInt(ceremony.day) ? (
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '2px' }}>
+                    <span>{i+1}</span>
+                    <span style={{ fontSize: '2.0rem', color: '#ffc0cb', lineHeight: '1' }}>❤</span>
+                  </div>
+                ) : (
+                  i+1
+                )}
               </div>
             ))}
           </div>
